@@ -11,8 +11,8 @@ class TransactionServiceImpl implements ITransactionService {
   }
 
   async create(request: Request): Promise<any> {
-    const { idAccount, transactionType } = request.body;
-
+    const { idAccount } = request.body;
+    const { transactionType } = request.params;
     await this.findAccountById(idAccount);
     const { amount } = request.body;
     if (transactionType === TransactionType.TRANSFER) {

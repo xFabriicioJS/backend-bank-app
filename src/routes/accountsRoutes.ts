@@ -1,16 +1,16 @@
 import express from "express";
-import UsersControllers from "../controllers/accountController";
+import AccountController from "../controllers/accountController";
 
 const router = express.Router();
 
-router.post("/usuarios", UsersControllers.create);
+router.post("/accounts", AccountController.create);
 
-router.get("/usuarios", UsersControllers.findAll);
+router.get("/accounts", AccountController.findAll);
 
-router.get("/usuarios/:id", UsersControllers.findById);
+router.get("/accounts/:id", AccountController.findById);
 
-router.put("/usuarios/:id", UsersControllers.update);
+router.put("/accounts/:id", AccountController.update);
 
-router.delete("/usuarios/:id", UsersControllers.delete);
+router.delete("/accounts/:id", AccountController.delete);
 
 export { router };

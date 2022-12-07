@@ -30,7 +30,7 @@ class AccountService implements IAccountService {
   }
 
   async update(req: Request, id: number): Promise<any> {
-    // Verifica se já existe uma conta com o CPF informado e se essa conta não é do usuário que está sendo atualizado
+    // Verifica se já existe uma conta com o CPF informado e se essa conta não é da conta que está sendo atualizado
     if (
       (await this.findByCpf(req.body.cpf)) !== null &&
       (await this.findByCpf(req.body.cpf)) !== id
