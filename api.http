@@ -1,0 +1,35 @@
+
+### Create
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nome": "João",
+  "cpf": "3123213211",
+  "email": "joao@email",
+  "telefone": "7878686789",
+  "sexo": "M",
+  "dataNascimento": "24/09/2000"
+}
+### FindAll
+GET http://localhost:3000/usuarios
+
+
+### FindById
+GET http://localhost:3000/usuarios/5
+
+### Update
+PUT http://localhost:3000/usuarios/1
+Content-Type: application/json
+
+{
+  "nome": "Fabricio",
+  "cpf": "321323212132",
+  "email": "fabricio@email",
+  "telefone": "7878686789",
+  "sexo": "M",
+  "dataNascimento": "31/08/2000"
+}
+
+### Delete
+DELETE http://localhost:3000/usuarios/1
