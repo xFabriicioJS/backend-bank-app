@@ -32,3 +32,29 @@ export const AccountModel = db.define("account", {
     },
   },
 });
+
+export const TransactionModel = db.define("transaction", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
+  transactionType: {
+    type: DataTypes.ENUM("deposit", "transfer"),
+    allowNull: false,
+  },
+  amount: {
+    type: DataTypes.DOUBLE(),
+    allowNull: false,
+    validate: {
+      min: 0,
+    },
+  },
+});
+
+// Relacionamentos
+AccountModel.hasMany(TransactionModel, {
+  foreignKey: "id",
+});
+TransactionModel.belongsTo(AccountModel);

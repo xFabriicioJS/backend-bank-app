@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import AccountServiceImpl from "../services/AccountServiceImpl";
-import TransactionServiceImpl from "../services/TransactionServiceImpl";
+import AccountServiceImpl from "../services/accountService";
+import TransactionServiceImpl from "../services/transactionService";
 
 class TransactionController {
   async create(req: Request, res: Response) {

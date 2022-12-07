@@ -1,12 +1,12 @@
 import express from "express";
 import TransactionController from "../controllers/transactionController";
 
-const router = express.Router();
+const transactionsRouter = express.Router();
 
-router.post("/transactions/:tipo", TransactionController.create);
+transactionsRouter.post("/transactions/:tipo", TransactionController.create);
 
-router.get("/transactions", TransactionController.findAll);
+transactionsRouter.get("/transactions", TransactionController.findAll);
 
-router.get("/transactions/:id", TransactionController.findById);
+transactionsRouter.get("/transactions/:id", TransactionController.findById);
 
-export { router };
+export { transactionsRouter };

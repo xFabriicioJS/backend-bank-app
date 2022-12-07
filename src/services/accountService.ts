@@ -1,5 +1,5 @@
 import { Request } from "express";
-import { AccountModel } from "../database/models/Account";
+import { AccountModel } from "../database/models/dbmodels";
 import IAccountService from "./interfaces/IAccountService";
 
 class AccountService implements IAccountService {

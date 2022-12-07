@@ -1,5 +1,4 @@
-import { AccountModel } from "../database/models/Account";
-import { TransactionModel } from "../database/models/Transaction";
+import { AccountModel, TransactionModel } from "../database/models/dbmodels";
 import ITransactionService from "./interfaces/ITransactionService";
 import { Request } from "express";
 import { TransactionType } from "./enums/TransactionType";

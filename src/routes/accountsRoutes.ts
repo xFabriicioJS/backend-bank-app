@@ -1,16 +1,16 @@
 import express from "express";
 import AccountController from "../controllers/accountController";
 
-const router = express.Router();
+const accountRouter = express.Router();
 
-router.post("/accounts", AccountController.create);
+accountRouter.post("/accounts", AccountController.create);
 
-router.get("/accounts", AccountController.findAll);
+accountRouter.get("/accounts", AccountController.findAll);
 
-router.get("/accounts/:id", AccountController.findById);
+accountRouter.get("/accounts/:id", AccountController.findById);
 
-router.put("/accounts/:id", AccountController.update);
+accountRouter.put("/accounts/:id", AccountController.update);
 
-router.delete("/accounts/:id", AccountController.delete);
+accountRouter.delete("/accounts/:id", AccountController.delete);
 
-export { router };
+export { accountRouter };

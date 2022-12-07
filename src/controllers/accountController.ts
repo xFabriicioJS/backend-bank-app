@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import AccountServiceImpl from "../services/AccountServiceImpl";
+import AccountServiceImpl from "../services/accountService";
 
 class AccountController {
   async findAll(res: Response) {
