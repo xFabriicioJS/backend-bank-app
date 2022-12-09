@@ -1,15 +1,10 @@
 
-### Create
-POST http://localhost:3000/usuarios
+### Create Account
+POST http://localhost:3000/accounts
 Content-Type: application/json
 
 {
-  "nome": "João",
-  "cpf": "3123213211",
-  "email": "joao@email",
-  "telefone": "7878686789",
-  "sexo": "M",
-  "dataNascimento": "24/09/2000"
+  "nome": "Fabricio"
 }
 ### FindAll
 GET http://localhost:3000/usuarios

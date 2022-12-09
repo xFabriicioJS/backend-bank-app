@@ -12,7 +12,13 @@ export const AccountModel = db.define("account", {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      len: [3, 50],
+      len: {
+        args: [3, 30],
+        msg: "Nome deve ter entre 3 e 30 caracteres",
+      },
+      notNull: {
+        msg: "Nome não pode ser nulo",
+      },
     },
   },
   cpf: {
@@ -20,7 +26,13 @@ export const AccountModel = db.define("account", {
     allowNull: false,
     unique: true,
     validate: {
-      len: [11, 11],
+      len: {
+        args: [11, 11],
+        msg: "CPF deve ter 11 dígitos",
+      },
+      notNull: {
+        msg: "CPF não pode ser nulo",
+      },
     },
   },
   balance: {
