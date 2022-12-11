@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import AccountServiceImpl from "../services/accountService";
 
 class AccountController {
-  async findAll(res: Response) {
+  async findAll(req: Request, res: Response) {
     const accounts = await AccountServiceImpl.findAll();
     return accounts.length > 0
       ? res.status(200).json(accounts)
@@ -26,6 +26,7 @@ class AccountController {
   }
 
   async update(req: Request, res: Response) {
+    console.log(req.params);
     const { id } = req.params;
     try {
       await AccountServiceImpl.update(req, +id);

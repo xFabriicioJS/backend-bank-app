@@ -4,27 +4,45 @@ POST http://localhost:3000/accounts
 Content-Type: application/json
 
 {
-  "nome": "Fabricio"
+  "name": "Fabricio",
+  "cpf": "23123231219"
 }
 ### FindAll
-GET http://localhost:3000/usuarios
+GET http://localhost:3000/accounts
 
 
 ### FindById
-GET http://localhost:3000/usuarios/5
+GET http://localhost:3000/accounts/1
 
 ### Update
-PUT http://localhost:3000/usuarios/1
+PUT http://localhost:3000/accounts/1
 Content-Type: application/json
 
 {
-  "nome": "Fabricio",
-  "cpf": "321323212132",
-  "email": "fabricio@email",
-  "telefone": "7878686789",
-  "sexo": "M",
-  "dataNascimento": "31/08/2000"
+  "nome": "Felipe",
+  "cpf": "23118231219"
 }
 
 ### Delete
-DELETE http://localhost:3000/usuarios/1
+DELETE http://localhost:3000/accounts/1
+
+### Create Transaction -> Deposito
+POST http://localhost:3000/transactions/deposit
+Content-Type: application/json
+{
+  "transactionType": "deposit",
+  "idAccount": 1,
+  "amount": 500.00
+}
+
+### Create Transaction -> Transferência
+POST http://localhost:3000/transactions/transfer
+{
+  "transactionType": "transfer",
+  "idAccount": 1,
+  "amount": 500.00,
+  "idAccountTarget": 2
+}
+
+### FindAll
+GET http://localhost:3000/transactions

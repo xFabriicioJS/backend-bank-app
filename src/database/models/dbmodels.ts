@@ -22,7 +22,7 @@ export const AccountModel = db.define("account", {
     },
   },
   cpf: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
     unique: true,
     validate: {
@@ -56,6 +56,14 @@ export const TransactionModel = db.define("transaction", {
     type: DataTypes.ENUM("deposit", "transfer"),
     allowNull: false,
   },
+  idAccount: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  idAccountTarget: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   amount: {
     type: DataTypes.DOUBLE(),
     allowNull: false,
@@ -67,6 +75,8 @@ export const TransactionModel = db.define("transaction", {
 
 // Relacionamentos
 AccountModel.hasMany(TransactionModel, {
-  foreignKey: "id",
+  foreignKey: "idAccount",
 });
-TransactionModel.belongsTo(AccountModel);
+TransactionModel.belongsTo(AccountModel, {
+  foreignKey: "idAccount",
+});

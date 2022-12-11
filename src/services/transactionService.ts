@@ -9,17 +9,31 @@ class TransactionServiceImpl implements ITransactionService {
     return transactions;
   }
 
+  async findAllByAccount(idAccount: number): Promise<any> {
+    const transactions = await TransactionModel.findAll({
+      where: { idAccount },
+    });
+    return transactions;
+  }
+
+  async findById(id: number): Promise<any> {
+    const transaction = await TransactionModel.findOne({ where: { id } });
+    return transaction;
+  }
+
   async create(request: Request): Promise<any> {
     const { idAccount } = request.body;
     const { transactionType } = request.params;
     await this.findAccountById(idAccount);
     const { amount } = request.body;
     if (transactionType === TransactionType.TRANSFER) {
+      console.log("teste");
       const { idAccountTarget } = request.body;
       await this.transfer(idAccountTarget, idAccount, amount);
     } else if (transactionType === TransactionType.DEPOSIT) {
       await this.deposit(idAccount, amount);
     } else {
+      console.log(transactionType);
       throw new Error("Tipo de transação inválido.");
     }
   }
@@ -65,8 +79,9 @@ class TransactionServiceImpl implements ITransactionService {
     });
     // Criando a transação e salvando na DB
     await TransactionModel.create({
-      idAccountOrigin,
+      idAccount: idAccountOrigin,
       transactionType: TransactionType.TRANSFER,
+      idAccountTarget,
       amount,
     });
   }

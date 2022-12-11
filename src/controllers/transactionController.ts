@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import AccountServiceImpl from "../services/accountService";
 import TransactionServiceImpl from "../services/transactionService";
 
 class TransactionController {
@@ -15,11 +14,21 @@ class TransactionController {
 
   async findById(req: Request, res: Response) {
     const { id } = req.params;
-    const account = await AccountServiceImpl.findById(+id);
-    return account ? res.status(200).json(account) : res.status(204).send();
+    const transaction = await TransactionServiceImpl.findById(+id);
+    return transaction
+      ? res.status(200).json(transaction)
+      : res.status(204).send();
   }
 
-  async findAll(res: Response) {
+  async findAllByAccount(req: Request, res: Response) {
+    const { id } = req.params;
+    const transactions = await TransactionServiceImpl.findAllByAccount(+id);
+    return transactions.length > 0
+      ? res.status(200).json(transactions)
+      : res.status(204).send();
+  }
+
+  async findAll(_req: Request, res: Response) {
     const transactions = await TransactionServiceImpl.findAll();
     return transactions.length > 0
       ? res.status(200).json(transactions)

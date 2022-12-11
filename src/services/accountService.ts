@@ -10,12 +10,16 @@ class AccountService implements IAccountService {
 
   async findById(id: number): Promise<any> {
     const account = await AccountModel.findOne({ where: { id } });
+    if (!account) {
+      throw new Error("Conta não encontrada.");
+    }
     return account;
   }
 
   async create(req: Request): Promise<any> {
     const { name, cpf } = req.body;
 
+    console.log(cpf);
     // Verifica se já existe uma conta associada ao CPF informado
     if ((await this.findByCpf(cpf)) !== null) {
       throw new Error("Uma conta já existe com o CPF informado.");
@@ -30,6 +34,9 @@ class AccountService implements IAccountService {
   }
 
   async update(req: Request, id: number): Promise<any> {
+    // Verificando se o id informado existe
+    await this.findById(id);
+
     // Verifica se já existe uma conta com o CPF informado e se essa conta não é da conta que está sendo atualizado
     if (
       (await this.findByCpf(req.body.cpf)) !== null &&
@@ -40,11 +47,12 @@ class AccountService implements IAccountService {
       );
     }
 
+    console.log("teste");
     // Se passar pela verifação acima, atualizamos a conta
-    const { nome, cpf } = req.body;
+    const { name, cpf } = req.body;
     await AccountModel.update(
       {
-        nome,
+        name,
         cpf,
       },
       { where: { id } }
