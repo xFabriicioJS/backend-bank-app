@@ -3,7 +3,13 @@ import { db } from "./database/db";
 import { TransactionModel, AccountModel } from "./database/models/dbmodels";
 import { accountRouter } from "./routes/accountsRoutes";
 import { transactionsRouter } from "./routes/transactionsRoutes";
+
+const cors = require("cors");
+
 const app = express();
+
+app.use(cors());
+
 TransactionModel.sync();
 AccountModel.sync();
 app.use(json());

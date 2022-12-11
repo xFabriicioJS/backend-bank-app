@@ -17,7 +17,10 @@ class TransactionServiceImpl implements ITransactionService {
   }
 
   async findById(id: number): Promise<any> {
-    const transaction = await TransactionModel.findOne({ where: { id } });
+    const transaction = await TransactionModel.findOne({
+      where: { id },
+      include: [{ model: AccountModel, as: "account" }],
+    });
     return transaction;
   }
 
@@ -26,6 +29,9 @@ class TransactionServiceImpl implements ITransactionService {
     const { transactionType } = request.params;
     await this.findAccountById(idAccount);
     const { amount } = request.body;
+    if (amount <= 0) {
+      throw new Error("O valor da transação deve ser maior que zero.");
+    }
     if (transactionType === TransactionType.TRANSFER) {
       console.log("teste");
       const { idAccountTarget } = request.body;
