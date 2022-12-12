@@ -18,8 +18,6 @@ Node.JS
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
 Faça o clone desse reposit´ório com o seguinte comando:
 
 ```
@@ -57,8 +55,6 @@ npm run dev
 Caso seja preciso, o arquivo "api.http" contém as rotas da aplicação para serem testadas no Insomnia, Postman ou até mesmo pela extensão REST Client do VSCode.
 
 ## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
 
 - [Node.JS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/) - O framework mais utilizado no ecossistema Node
