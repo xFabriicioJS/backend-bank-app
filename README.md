@@ -41,11 +41,7 @@ yarn ou npm install
 Agora, crie um arquivo ".env" para configurar suas variáveis de ambiente para coincidir com as configurações do banco de dados. Como no exemplo abaixo:
 
 ```
-DATABASE_HOST='localhost'
-DATABASE_PORT='3306'
-DATABASE_NAME='banktest'
-DATABASE_USER='root'
-DATABASE_PASSWORD=''
+VITE_URL_API=http://localhost:3000/
 ```
 
 Finalmente, execute o comando abaixo para iniciar a aplicação:
@@ -54,16 +50,16 @@ Finalmente, execute o comando abaixo para iniciar a aplicação:
 npm run dev
 ```
 
-Caso seja preciso, o arquivo "api.http" contém as rotas da aplicação para serem testadas no Insomnia, Postman ou até mesmo pela extensão REST Client do VSCode.
-
 ## 🛠️ Construído com
 
 Mencione as ferramentas que você usou para criar seu projeto
 
-- [Node.JS](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/) - O framework mais utilizado no ecossistema Node
-- [Sequelize](https://sequelize.org/) - ORM utilizado para o banco de dados
-- [MySQL](https://www.mysql.com/) - Banco de dados utilizado
-- [Typescript](https://www.typescriptlang.org/) - Linguagem utilizada para o desenvolvimento
+- [React.JS](https://pt-br.reactjs.org/) - A maior biblioteca JavaScript utilizada para o desenvolvimento web
+- [TailwindCSS](https://expressjs.com/pt-br/) - Framework CSS para agilizar no desenvolvimento de estilos
+- [Axios](https://axios-http.com/ptbr/docs/intro) - Biblioteca para obtenção de dados HTTP
+- [React Router Dom](https://reactrouter.com/web/guides/quick-start) - Biblioteca para gerenciamento de rotas
+- [React Icons](https://react-icons.github.io/react-icons/) - Biblioteca para utilização de ícones
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) - Biblioteca para utilização de notificações
+- [Formik](https://formik.org/docs/overview) - Biblioteca para utilização de formulários
 
 ⌨️ com ❤️ por [Fabricio Monteiro](https://github.com/xFabriicioJS) 😊
