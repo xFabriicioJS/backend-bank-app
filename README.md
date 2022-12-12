@@ -1,6 +1,6 @@
-# Título do projeto
+# bankApp - Backend com Node.JS
 
-bankApp - Backend com Node.JS
+Uma aplicação bancária backend feita com Node, Express e Sequelize. 
 
 ## 🚀 Começando
 
