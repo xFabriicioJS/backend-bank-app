@@ -65,6 +65,13 @@ class TransactionServiceImpl implements ITransactionService {
     idAccountOrigin: number,
     amount: number
   ): Promise<any> {
+    //Verifica se a conta de origem e conta alvo são a mesma conta
+    if (idAccountOrigin == idAccountTarget) {
+      throw new Error(
+        "Não é possível realizar uma transferência para a mesma conta!"
+      );
+    }
+      
     // Verificando se as contas existem
     await this.findAccountById(idAccountTarget);
     const accountOrigin = await this.findAccountById(idAccountOrigin);
