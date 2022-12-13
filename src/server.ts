@@ -10,12 +10,13 @@ const app = express();
 
 app.use(cors());
 
-TransactionModel.sync();
 AccountModel.sync();
+TransactionModel.sync();
+
 app.use(json());
 app.use(accountRouter);
 app.use(transactionsRouter);
 app.listen(3000, async () => {
   await db.sync();
-  console.log("Server rodando na porta 3000");
+  console.log("Server running on port 3000");
 });
